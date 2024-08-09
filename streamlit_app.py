@@ -64,11 +64,23 @@ def target_encode(val):
 
 y= y_raw.apply(target_encode)
 
-  
-  
-
 with st.expander("Data Preparation"):  
   st.write("**Encoded X (Input Penguin)**")
   input_row
   st.write("**Encoded Y**")
   y
+
+
+# MOdel Training and inference
+#train teh ml model
+clf = RandomForestClassifier()
+clf.fit(x_raw,y)
+
+# apply model to make prediction
+prediction = clf.predict(input_row)
+prediction_prb = clf.predict_probs(input_row)
+prediction_prb
+
+
+
+
